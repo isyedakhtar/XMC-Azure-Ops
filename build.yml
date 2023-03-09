@@ -10,12 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: '**/*.csproj'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
-
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -27,3 +21,7 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
+- task: VSBuild@1
+  inputs:
+    solution: '**\*.sln'
+    vsVersion: '16.0'
