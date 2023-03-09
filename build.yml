@@ -20,6 +20,7 @@ steps:
     npm run build
   displayName: 'npm install and build'
   workingDirectory: $(System.DefaultWorkingDirectory)/src/sxastarter
+  includeRootFolder: false
 
 - task: VSBuild@1
   inputs:
