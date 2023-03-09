@@ -19,7 +19,7 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
-..workingDirectory: $(System.DefaultWorkingDirectory)/src/sxastarter
+  workingDirectory: $(System.DefaultWorkingDirectory)/src/sxastarter
 
 - task: VSBuild@1
   inputs:
