@@ -21,7 +21,7 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
     feedsToUse: 'config'
-    nugetConfigPath: './Sitecore/nuget.config'
+    nugetConfigPath: '$(System.DefaultWorkingDirectory)/nuget.config'
 
 - task: VSBuild@1
   inputs:
