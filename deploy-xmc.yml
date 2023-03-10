@@ -22,5 +22,7 @@ steps:
   displayName: 'XM CLoud Sitecore help'
 
 - script: |
-    dotnet sitecore cloud login --client-credentials --client-id bJzMmPaKMh203Vqo5htSgxcYeSN9bPTx --client-secret si78IxouaWsLMX9OptQtUtmf6-KUBIHea9J3akKAo6r6Ql8NHNOwb84r2Z-_PRfr --allow-write
-  displayName: 'Login to XM Cloud'
+    dotnet sitecore cloud login --client-credentials --client-id $(xmcloud-client-id) --client-secret $(xmcloud-client-secrets) --allow-write
+    echo 'Loggoed in - deploying to xm cloud'
+    dotnet sitecore cloud deployment create --environment-id $(xmcloud-environment-id) --upload --json
+  displayName: 'Login and Deploy'
