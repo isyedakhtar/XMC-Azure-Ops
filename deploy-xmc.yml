@@ -17,14 +17,6 @@ steps:
     vsVersion: '2019'
 
 - script: |
+    dotnet tool restore
     dotnet sitecore condition: --help
   displayName: 'XM CLoud Sitecore help'
-
-- script: echo Hello, world!
-  displayName: 'Upload to the environment'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-    dotnet sitecore --help
-  displayName: 'Run a multi-line script'
