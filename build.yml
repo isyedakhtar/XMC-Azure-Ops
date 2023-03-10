@@ -21,7 +21,8 @@ steps:
   displayName: 'npm install and build'
   workingDirectory: $(System.DefaultWorkingDirectory)/src/sxastarter
 
-- task: PublishPipelineArtifact@1
+- task: DotNetCoreCLI@2
   inputs:
-    artifactName: 'build'
-    targetPath: '$(System.DefaultWorkingDirectory)/out'
+    command: 'build'
+    projects: '**/*.csproj'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/src'
