@@ -12,7 +12,7 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '14.x'
   displayName: 'Install Node.js'
 
 - script: |
@@ -20,9 +20,8 @@ steps:
     npm run build
   displayName: 'npm install and build'
   workingDirectory: $(System.DefaultWorkingDirectory)/src/sxastarter
-  includeRootFolder: false
 
-- task: VSBuild@1
+- task: PublishPipelineArtifact@1
   inputs:
-    solution: '**\*.sln'
-    vsVersion: '16.0'
+    artifactName: 'build'
+    targetPath: '$(System.DefaultWorkingDirectory)/out'
