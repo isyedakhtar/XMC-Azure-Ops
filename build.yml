@@ -16,7 +16,9 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+    npm install --global vercel
+    vercelpull --yes --environment=production --token=$(vercel-token)
+    vercel build --prod --token=$(vercel-token)
+    vercel deploy --prebuilt --prod --token=$(vercel-token)
+  displayName: 'install and build vercel and deploy'
   workingDirectory: $(System.DefaultWorkingDirectory)/src/sxastarter
