@@ -19,6 +19,6 @@ steps:
     npm install --global vercel
     vercel pull --yes --environment=production --token=$(vercel-token)
     vercel build --prod --token=$(vercel-token)
-    vercel deploy --prebuilt --prod --token=$(vercel-token)
+    vercel deploy --prod --token=$(vercel-token)
   displayName: 'install and build vercel and deploy'
   workingDirectory: $(System.DefaultWorkingDirectory)
